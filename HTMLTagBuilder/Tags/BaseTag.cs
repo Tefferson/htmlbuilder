@@ -32,7 +32,7 @@ namespace HTMLTagBuilder.Tags
         {
             string attributes = "";
             string childrenContent = "";
-            string baseLine = Environment.NewLine + paragraphOffset + "{0}" + Environment.NewLine + paragraphOffset;
+            string baseLine = Environment.NewLine + paragraphOffset + " " + "{0}" + Environment.NewLine + paragraphOffset;
 
             typeof(BaseTag).GetProperties()
                          .Select(prop => prop.GetValue(this, null))
@@ -56,6 +56,12 @@ namespace HTMLTagBuilder.Tags
             Tags.Div div = new Tags.Div(this);
             content.Add(div);
             return div;
+        }
+        public Span Span()
+        {
+            Tags.Span span = new Tags.Span(this);
+            content.Add(span);
+            return span;
         }
     }
 }
